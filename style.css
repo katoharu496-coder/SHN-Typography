@@ -1,0 +1,375 @@
+/* ===========================================
+   SHN Typography
+   =========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:#fff;
+    color:#111;
+    overflow-x:hidden;
+}
+/* ===========================================
+   Floating dots
+   =========================================== */
+
+.background-dots{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+header,
+main{
+    position:relative;
+    z-index:2;
+}
+
+.background-dots span{
+    position:absolute;
+
+    border-radius:50%;
+
+    background:#38bdf8;
+
+    width:12px;
+    height:12px;
+
+    opacity:.5;
+
+    animation:float 20s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translate(0,0);
+    }
+
+    25%{
+        transform:translate(18px,-25px);
+    }
+
+    50%{
+        transform:translate(-10px,-45px);
+    }
+
+    75%{
+        transform:translate(20px,-18px);
+    }
+
+    100%{
+        transform:translate(0,0);
+    }
+
+}
+
+/* ===========================================
+   Header
+   =========================================== */
+
+header{
+
+    position:relative;
+
+    z-index:5;
+
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 48px;
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.logo img{
+
+    height:22px;
+
+    display:block;
+
+}
+
+nav{
+
+    display:flex;
+
+    gap:32px;
+
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:#111;
+
+    font-size:15px;
+    font-weight:600;
+
+    position:relative;
+
+    transition:.25s;
+
+}
+
+nav a:hover{
+
+    color:#0099ff;
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-6px;
+
+    width:0;
+    height:2px;
+
+    background:#0099ff;
+
+    transition:.25s;
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
+
+/* ===========================================
+   Hero
+   =========================================== */
+
+.hero{
+    min-height:calc(100vh - 70px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    /* Nâng lên khoảng 40px */
+    transform:translateY(-40px);
+
+    max-width:1100px;
+    margin:0 auto;
+    padding:40px 30px;
+
+    text-align:center;
+}
+
+.hero-logo{
+    width:500px;
+    max-width:80%;
+    height:auto;
+
+    display:block;
+    margin:0 auto 16px;
+
+    user-select:none;
+    -webkit-user-drag:none;
+}
+
+.hero p{
+
+    font-size:22px;
+
+    color:#6b7280;
+
+    line-height:1.7;
+
+}
+
+/* ===========================================
+   Cards
+   =========================================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,280px);
+
+    gap:24px;
+
+    justify-content:center;
+
+    margin-top:60px;
+
+}
+
+.card{
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid #e5e7eb;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    text-decoration:none;
+    color:#111;
+
+    text-align:center;
+
+    box-shadow:
+        0 6px 18px rgba(15,23,42,.06),
+        0 2px 6px rgba(15,23,42,.04);
+
+    transition:
+        transform .25s,
+        box-shadow .25s,
+        border-color .25s;
+}
+
+.card:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.03);
+
+    border-color:#38bdf8;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.08);
+
+}
+
+.card img{
+
+    width:46px;
+    height:46px;
+
+    margin-bottom:18px;
+
+    transition:.25s;
+
+}
+
+.card:hover img{
+
+    transform:
+        scale(1.1)
+        rotate(-5deg);
+
+}
+
+.card h2{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    color:#6b7280;
+
+    line-height:1.6;
+
+}
+
+/* ===========================================
+   Animation
+   =========================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(24px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+/* ===========================================
+   Responsive
+   =========================================== */
+
+@media (max-width:900px){
+
+    header{
+
+        padding:0 20px;
+
+    }
+
+    nav{
+
+        gap:18px;
+
+    }
+
+    .hero h1{
+
+        font-size:46px;
+
+    }
+
+    .hero p{
+
+        font-size:18px;
+
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+        max-width:340px;
+
+        margin:50px auto 0;
+
+    }
+
+}
+#bg{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    pointer-events:none;
+}
